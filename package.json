@@ -1,0 +1,42 @@
+{
+  "name": "solana-agent-kit-plugin-pigeonhouse",
+  "version": "1.0.0",
+  "description": "PigeonHouse plugin for Solana Agent Kit — deflationary token launchpad with auto PIGEON burn",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "solana",
+    "agent",
+    "ai",
+    "pigeonhouse",
+    "pigeon",
+    "token-launch",
+    "bonding-curve",
+    "defi",
+    "burn",
+    "solana-agent-kit"
+  ],
+  "author": "noegppgeon-boop",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noegppgeon-boop/solana-agent-kit-plugin-pigeonhouse"
+  },
+  "peerDependencies": {
+    "solana-agent-kit": ">=2.0.0"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.30.0",
+    "@solana/spl-token": "^0.4.0",
+    "@solana/web3.js": "^1.95.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "solana-agent-kit": "^2.0.0"
+  }
+}
