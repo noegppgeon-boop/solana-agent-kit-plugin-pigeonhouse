@@ -416,13 +416,13 @@ const PigeonHousePlugin: Plugin = {
         "deploy bonding curve token",
         "launch token that burns pigeon",
       ],
-      examples: [
+      examples: [[
         {
           input: { text: "Create a token called 'My Token' with symbol MTK on PigeonHouse" },
           output: { result: "Token created: mint address Abc123..." },
           explanation: "Creates a new token with a bonding curve on PigeonHouse",
         },
-      ],
+      ]],
       schema: z.object({
         name: z.string().describe("Token name"),
         symbol: z.string().describe("Token symbol (ticker)"),
@@ -446,13 +446,13 @@ const PigeonHousePlugin: Plugin = {
         "purchase token on bonding curve",
         "buy token and burn pigeon",
       ],
-      examples: [
+      examples: [[
         {
           input: { text: "Buy 500 PIGEON worth of token Abc123 on PigeonHouse" },
           output: { result: "Bought tokens, tx: 5xY..." },
           explanation: "Buys tokens by spending 500 PIGEON on the bonding curve",
         },
-      ],
+      ]],
       schema: z.object({
         tokenMint: z.string().describe("Token mint address to buy"),
         quoteAmount: z.number().describe("Amount of quote asset to spend (human readable, e.g. 500 for 500 PIGEON)"),
@@ -475,13 +475,13 @@ const PigeonHousePlugin: Plugin = {
         "sell pigeonhouse token",
         "sell token on bonding curve",
       ],
-      examples: [
+      examples: [[
         {
           input: { text: "Sell 10000 tokens of Abc123 on PigeonHouse" },
           output: { result: "Sold tokens, received PIGEON, tx: 7zK..." },
           explanation: "Sells tokens back to the bonding curve",
         },
-      ],
+      ]],
       schema: z.object({
         tokenMint: z.string().describe("Token mint address to sell"),
         tokenAmount: z.number().describe("Amount of tokens to sell (human readable, e.g. 10000)"),
@@ -502,13 +502,13 @@ const PigeonHousePlugin: Plugin = {
         "show pigeonhouse board",
         "what tokens are on pigeonhouse",
       ],
-      examples: [
+      examples: [[
         {
           input: { text: "Show me all tokens on PigeonHouse" },
           output: { result: "[{name: 'LOW IQ', symbol: 'LOWIQ', ...}]" },
           explanation: "Lists all active tokens on PigeonHouse",
         },
-      ],
+      ]],
       schema: z.object({}),
       handler: async (agent) => {
         const tokens = await pigeonhouseGetTokens(agent);
@@ -523,13 +523,13 @@ const PigeonHousePlugin: Plugin = {
         "token details on pigeonhouse",
         "check pigeonhouse token",
       ],
-      examples: [
+      examples: [[
         {
           input: { text: "Get info about token DRQwGjE... on PigeonHouse" },
           output: { result: "{name: 'LOW IQ', virtualReserves: ...}" },
           explanation: "Gets detailed bonding curve state for a token",
         },
-      ],
+      ]],
       schema: z.object({
         tokenMint: z.string().describe("Token mint address"),
       }),
@@ -547,13 +547,13 @@ const PigeonHousePlugin: Plugin = {
         "how much pigeon burned",
         "pigeonhouse statistics",
       ],
-      examples: [
+      examples: [[
         {
           input: { text: "How much PIGEON has been burned on PigeonHouse?" },
           output: { result: "{totalBurned: 4334, tokensLaunched: 62}" },
           explanation: "Shows total PIGEON burned and platform statistics",
         },
-      ],
+      ]],
       schema: z.object({}),
       handler: async (agent) => {
         const stats = await pigeonhouseGetBurnStats(agent);
@@ -568,13 +568,13 @@ const PigeonHousePlugin: Plugin = {
         "recent trades on pigeonhouse",
         "token trade history",
       ],
-      examples: [
+      examples: [[
         {
           input: { text: "Show recent trades for token DRQwGjE..." },
           output: { result: "[{type: 'buy', price: 0.001, ...}]" },
           explanation: "Lists recent trades for a PigeonHouse token",
         },
-      ],
+      ]],
       schema: z.object({
         tokenMint: z.string().describe("Token mint address"),
         limit: z.number().default(30).describe("Number of trades to return (max 100)"),
